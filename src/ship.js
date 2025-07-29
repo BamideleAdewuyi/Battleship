@@ -5,3 +5,5 @@ class Ship {
         this.hits = hits;
     }
 }
+
+export default Ship;
