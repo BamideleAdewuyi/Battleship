@@ -19,3 +19,11 @@ test('Ship is sunk after five hits', () => {
     ship.hit();
     expect(ship.isSunk()).toBe(true);
 })
+
+test('Ship is not sunk after 4 hits', () => {
+    ship.hit();
+    ship.hit();
+    ship.hit();
+    ship.hit();
+    expect(ship.isSunk()).toBe(false);
+})
