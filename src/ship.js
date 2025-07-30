@@ -4,6 +4,10 @@ class Ship {
         this.sunk = sunk;
         this.hits = hits;
     }
+
+    hit() {
+        this.hits += 1;
+    }
 }
 
 export default Ship;
