@@ -4,7 +4,7 @@ class Gameboard {
         this.board = [];
     };
 
-    placeShip(ship) {
+    placeShip(ship, direction, location) {
 
     };
 };
