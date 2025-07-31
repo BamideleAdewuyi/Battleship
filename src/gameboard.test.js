@@ -2,6 +2,6 @@ import Gameboard from "./gameboard";
 
 let gameboard;
 
-beforeEach(() =< {
+beforeEach(() => {
     gameboard = new Gameboard();
 })
