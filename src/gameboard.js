@@ -17,6 +17,10 @@ class Gameboard {
             }
         }
     };
+
+    getSquare(location) {
+
+    };
 };
 
 export default Gameboard;
