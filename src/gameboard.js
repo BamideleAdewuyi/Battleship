@@ -7,6 +7,10 @@ class Gameboard {
     placeShip(ship, direction, location) {
 
     };
+
+    initialiseBoard() {
+
+    };
 };
 
 export default Gameboard;
