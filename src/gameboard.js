@@ -5,6 +5,10 @@ class Gameboard {
         this.initialiseBoard();
     };
 
+    createShip(length) {
+        return new Ship(length);
+    };
+
     placeShip(ship, direction, location) {
 
     };
