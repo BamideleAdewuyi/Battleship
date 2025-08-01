@@ -11,7 +11,7 @@ class Gameboard {
     placeShip(length, direction, x, y) {
         const ship = this.createShip(length);
         ship.position = [];
-        for (let i = x; i < length; i++) {
+        for (let i = x; i < x + length; i++) {
             ship.position.push([i, y])
         }
         this.board.push(ship)
