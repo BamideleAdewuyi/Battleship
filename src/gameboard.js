@@ -26,7 +26,7 @@ class Gameboard {
         }
     };
 
-    checkSquareFree(position) {
+    checkSquareFree(x, y) {
 
     };
 
