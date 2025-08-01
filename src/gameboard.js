@@ -9,7 +9,7 @@ class Gameboard {
         return new Ship(length);
     };
 
-    placeShip(length, direction, location) {
+    placeShip(length, direction, x, y) {
         const ship = this.createShip(length);
     };
 
