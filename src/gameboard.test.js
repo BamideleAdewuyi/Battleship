@@ -7,5 +7,6 @@ beforeEach(() => {
 })
 
 test('Can place a ship of length 2, horizontally  at 0,0', () => {
-    
+    gameboard.placeShip(2, "horizontal", 0, 0);
+    expect(gameboard.board).toStrictEqual([[0,0], [1,0]])
 })
