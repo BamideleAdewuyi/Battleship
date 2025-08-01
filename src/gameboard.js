@@ -26,7 +26,7 @@ class Gameboard {
         }
     };
 
-    checkSquareFree(x, y) {
+    checkSquareValid(x, y) {
 
     };
 
