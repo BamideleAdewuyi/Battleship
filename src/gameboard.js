@@ -10,7 +10,7 @@ class Gameboard {
     };
 
     placeShip(length, direction, location) {
-        
+        const ship = this.createShip(length);
     };
 
     initialiseBoard() {
