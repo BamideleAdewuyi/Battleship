@@ -26,6 +26,10 @@ class Gameboard {
         }
     };
 
+    checkSquareFree(position) {
+
+    };
+
     getSquare(location) {
 
     };
