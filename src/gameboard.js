@@ -10,11 +10,21 @@ class Gameboard {
 
     placeShip(length, direction, x, y) {
         const ship = this.createShip(length);
+        let valid = true;
         ship.position = [];
         for (let i = x; i < x + length; i++) {
             ship.position.push([i, y])
+        };
+
+        for (const square of ship.position) {
+            if (!this.checkSquareValid(square[0], square[1])) {
+                valid = false
+            }
+        };
+
+        if (valid) {
+            this.board.push(ship)
         }
-        this.board.push(ship)
     };
 
     initialiseBoard() {
