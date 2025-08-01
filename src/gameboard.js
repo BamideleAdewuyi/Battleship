@@ -9,8 +9,8 @@ class Gameboard {
         return new Ship(length);
     };
 
-    placeShip(ship, direction, location) {
-
+    placeShip(length, direction, location) {
+        
     };
 
     initialiseBoard() {
