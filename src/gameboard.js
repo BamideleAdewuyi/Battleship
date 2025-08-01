@@ -2,7 +2,6 @@ import Ship from "./ship";
 class Gameboard {
     constructor() {
         this.board = [];
-        this.initialiseBoard();
     };
 
     createShip(length) {
@@ -11,6 +10,9 @@ class Gameboard {
 
     placeShip(length, direction, x, y) {
         const ship = this.createShip(length);
+        for (let i = x; i < length; i++) {
+            this.board.push([i, y])
+        }
     };
 
     initialiseBoard() {
