@@ -2,6 +2,8 @@ import Ship from "./ship";
 class Gameboard {
     constructor() {
         this.board = [];
+        this.misses = [];
+        this.hits = [];
     };
 
     createShip(length) {
