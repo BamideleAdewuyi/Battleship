@@ -142,4 +142,9 @@ test('receiveAttack can sink a ship of length 4', () => {
 
 test('checkAllShipsSunk returns true when gameboard has no ships', () => {
     expect(gameboard.checkAllShipsSunk()).toBe(true);
-})
+});
+
+test('checkAllShipsSunk returns false when gameboard has one ship and no attacks', () => {
+    gameboard.placeShip(1, "vertical", 3, 3);
+    expect(gameboard.checkAllShipsSunk()).toBe(false);
+});
