@@ -98,6 +98,10 @@ class Gameboard {
         return false;
     };
 
+    checkShipSunk(ship) {
+        if (ship.isSunk()) this.isSunk.push(ship);
+    };
+
     getSquare(location) {
 
     };
