@@ -78,7 +78,7 @@ class Gameboard {
         this.hits.push([x, y]);
     };
 
-    checkIfSquareHit(x, y, arr) {
+    checkForSquare(x, y, arr) {
         for (const square of arr) {
             if (square[0] == x && square[1] == y) return true;
         };
