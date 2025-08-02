@@ -60,3 +60,17 @@ test('Ship of length 2 can be placed vertically on square (4, 4)', () => {
     gameboard.placeShip(2, "vertical", 4, 4);
     expect(gameboard.board[0].position).toStrictEqual([[4,4], [4,5]])
 });
+
+test('Can add 10 ships to valid positions', () => {
+    gameboard.placeShip(1, "vertical", 1, 10);
+    gameboard.placeShip(1, "vertical", 1, 4);
+    gameboard.placeShip(1, "vertical", 1, 1);
+    gameboard.placeShip(1, "vertical", 7, 7);
+    gameboard.placeShip(2, "horizontal", 3, 3);
+    gameboard.placeShip(2, "horizontal", 5, 9);
+    gameboard.placeShip(2, "horizontal", 8, 10);
+    gameboard.placeShip(3, "vertical", 2, 6);
+    gameboard.placeShip(3, "vertical", 9, 6);
+    gameboard.placeShip(4, "horizontal", 6, 4);
+    expect(gameboard.board.length).toBe(10)
+})
