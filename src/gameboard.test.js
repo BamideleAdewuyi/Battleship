@@ -6,14 +6,14 @@ beforeEach(() => {
     gameboard = new Gameboard();
 });
 
-test('Can place a ship of length 2, horizontally  at 0,0', () => {
-    gameboard.placeShip(2, "horizontal", 0, 0);
-    expect(gameboard.board[0].position).toStrictEqual([[0,0], [1,0]])
+test('Can place a ship of length 2, horizontally  at 1,1', () => {
+    gameboard.placeShip(2, "horizontal", 1, 1);
+    expect(gameboard.board[0].position).toStrictEqual([[1,1], [2,1]])
 });
 
-test('Can place a ship of length 2, horizontally  at 0,1', () => {
-    gameboard.placeShip(2, "horizontal", 0, 1);
-    expect(gameboard.board[0].position).toStrictEqual([[0,1], [1,1]])
+test('Can place a ship of length 2, horizontally  at 1,2', () => {
+    gameboard.placeShip(2, "horizontal", 1, 2);
+    expect(gameboard.board[0].position).toStrictEqual([[1,2], [2,2]])
 });
 
 test('checkShipValid method returns false with square next to placed ship', () => {
@@ -47,7 +47,7 @@ test('Gameboard will not add a ship if any part of it is next to a ship already 
 
 test('Gameboard can add a ship if it is not too close to an already placed ship', () => {
     gameboard.placeShip(2, "horizontal", 4, 4);
-    gameboard.placeShip(2, "horizontal", 0, 0)
+    gameboard.placeShip(2, "horizontal", 1, 1)
     expect(gameboard.board.length).toBe(2);
 });
 
