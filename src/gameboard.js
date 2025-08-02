@@ -67,7 +67,19 @@ class Gameboard {
     };
 
     receiveAttack(x, y) {
+        let alreadyHit = false;
+        if (!this.checkForSquare(x, y, this.hits) && !this.checkForSquare(x, y, this.misses)) alreadyHit = true;
 
+        if (!alreadyHit) {
+            for (let ship of this.board) {
+                if (this.checkForSquare(x, y, ship.position)) {
+                    ship.hit();
+                    this.hits.push([x, y]);
+                    return;
+                }
+            }
+            this.misses.push([x, y]);
+        }
     };
 
     recordMiss(x, y) {
