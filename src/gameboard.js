@@ -47,6 +47,10 @@ class Gameboard {
         return true;
     };
 
+    checkShipInBounds(ship) {
+
+    };
+
     getSquare(location) {
 
     };
