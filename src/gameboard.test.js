@@ -73,4 +73,16 @@ test('Can add 10 ships to valid positions', () => {
     gameboard.placeShip(3, "vertical", 9, 6);
     gameboard.placeShip(4, "horizontal", 6, 4);
     expect(gameboard.board.length).toBe(10)
-})
+});
+
+test('checkForSquare returns true with simple inputs', () => {
+    expect(gameboard.checkForSquare(3, 4, [[3, 4]])).toBe(true)
+});
+
+test('checkForSquare returns false with simple inputs', () => {
+    expect(gameboard.checkForSquare(3, 5, [[3, 4]])).toBe(false)
+});
+
+test('checkForSquare returns true when searching through longer array', () => {
+    expect(gameboard.checkForSquare(3, 4, [[3434, 6], [3, 4], [4, 5]])).toBe(true)
+});
