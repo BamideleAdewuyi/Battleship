@@ -42,6 +42,7 @@ class Gameboard {
                 if (Math.abs(square[0] - x) < 2 || Math.abs(square[1] - y) < 2) {
                     return false;
                 }
+                if (!this.checkShipInBounds(ship)) return false;
             }
         }
         return true;
