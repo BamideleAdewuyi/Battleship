@@ -122,4 +122,10 @@ test('receiveAttack does not store a miss more than once', () => {
     expect(gameboard.misses).toStrictEqual([[1, 2]]);
     expect(gameboard.hits).toStrictEqual([]);
     expect(gameboard.board[0].damage).toBe(0)
-})
+});
+
+test('receiveAttack results in ship being added to sunkShips array', () => {
+    gameboard.placeShip(1, "horizontal", 3, 3);
+    gameboard.receiveAttack(3, 3);
+    expect(gameboard.sunkShips.length).toBe(1)
+});
