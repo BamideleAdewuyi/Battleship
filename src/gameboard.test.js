@@ -54,4 +54,9 @@ test('Gameboard can add a ship if it is not too close to an already placed ship'
 test('Ship is not added if it goes out of right side of grid', () => {
     gameboard.placeShip(6, "horizontal", 10, 10);
     expect(gameboard.board.length).toBe(0)
-})
+});
+
+test('Ship of length 2 can be placed vertically on square (4, 4)', () => {
+    gameboard.placeShip(2, "vertical", 4, 4);
+    expect(gameboard.board[0].position).toStrictEqual([[4,4], [4,5]])
+});
