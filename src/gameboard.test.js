@@ -44,3 +44,9 @@ test('Gameboard will not add a ship if any part of it is next to a ship already 
     gameboard.placeShip(2, "horizontal", 5, 4)
     expect(gameboard.board.length).toBe(1);
 });
+
+test('Gameboard can add a ship if it is not too close to an already placed ship', () => {
+    gameboard.placeShip(2, "horizontal", 4, 4);
+    gameboard.placeShip(2, "horizontal", 0, 0)
+    expect(gameboard.board.length).toBe(2);
+});
