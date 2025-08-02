@@ -3,7 +3,8 @@ class Gameboard {
     constructor() {
         this.board = [];
         this.misses = [];
-        this.hits = []; 
+        this.hits = [];
+        this.sunkShips = [];
     };
 
     createShip(length) {
