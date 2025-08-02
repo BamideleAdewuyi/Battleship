@@ -106,10 +106,6 @@ class Gameboard {
     checkAllShipsSunk() {
         return this.board.length == this.sunkShips.length;
     };
-
-    getSquare(location) {
-
-    };
 };
 
 export default Gameboard;
