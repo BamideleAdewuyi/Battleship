@@ -12,9 +12,12 @@ class Gameboard {
         const ship = this.createShip(length);
         let valid = true;
         ship.position = [];
-        for (let i = x; i < x + length; i++) {
-            ship.position.push([i, y])
-        };
+
+        if (direction == "horizontal") {
+            for (let i = x; i < x + length; i++) {
+                ship.position.push([i, y])
+            };
+        }
 
         for (const square of ship.position) {
             if (!this.checkShipValid(square[0], square[1])) {
