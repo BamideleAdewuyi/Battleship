@@ -104,4 +104,12 @@ test('receiveAttack can register a miss, leaving ships undamaged', () => {
     expect(gameboard.misses).toStrictEqual([[1, 2]]);
     expect(gameboard.hits).toStrictEqual([]);
     expect(gameboard.board[0].damage).toBe(0)
+});
+
+test('receiveAttack does carry out same attack more than once.', () => {
+    gameboard.placeShip(1, "horizontal", 3, 3);
+    gameboard.receiveAttack(3, 3);
+    gameboard.receiveAttack(3, 3);
+    gameboard.receiveAttack(3, 3);
+    expect(gameboard.board[0].damage).toBe(1);
 })
