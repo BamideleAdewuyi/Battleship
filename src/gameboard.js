@@ -76,6 +76,7 @@ class Gameboard {
                 if (this.checkForSquare(x, y, ship.position)) {
                     ship.hit();
                     this.hits.push([x, y]);
+                    this.checkShipSunk(ship);
                     return;
                 }
             }
