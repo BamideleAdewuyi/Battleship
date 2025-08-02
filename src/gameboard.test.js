@@ -50,3 +50,8 @@ test('Gameboard can add a ship if it is not too close to an already placed ship'
     gameboard.placeShip(2, "horizontal", 0, 0)
     expect(gameboard.board.length).toBe(2);
 });
+
+test('checkInBounds will return false when a ship located off the grid is passed into it', () => {
+    gameboard.placeShip(5, "horizontal", 10, 10);
+    expect(gameboard.checkShipInBounds(gameboard.board[0])).toBe(false);
+})
