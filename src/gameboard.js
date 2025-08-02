@@ -19,6 +19,12 @@ class Gameboard {
             };
         }
 
+        if (direction == "vertical") {
+            for (let i = y; i < y + length; i++) {
+                ship.position.push([x, i])
+            };
+        }
+
         for (const square of ship.position) {
             if (!this.checkShipValid(square[0], square[1])) {
                 valid = false
