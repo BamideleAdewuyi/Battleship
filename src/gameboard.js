@@ -48,7 +48,10 @@ class Gameboard {
     };
 
     checkShipInBounds(ship) {
-
+        for (const square of ship.position) {
+            if (square[0] > 10 || square[1] > 10) return false;
+        }
+        return true;
     };
 
     getSquare(location) {
