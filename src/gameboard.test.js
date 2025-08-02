@@ -86,3 +86,8 @@ test('checkForSquare returns false with simple inputs', () => {
 test('checkForSquare returns true when searching through longer array', () => {
     expect(gameboard.checkForSquare(3, 4, [[3434, 6], [3, 4], [4, 5]])).toBe(true)
 });
+
+test('checkForSquare returns false when applied to gameboard with empty hits and misses arrays', () => {
+    expect(gameboard.checkForSquare(4, 5, gameboard.misses)).toBe(false);
+    expect(gameboard.checkForSquare(4, 5, gameboard.hits)).toBe(false);
+});
