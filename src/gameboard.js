@@ -99,7 +99,7 @@ class Gameboard {
     };
 
     checkShipSunk(ship) {
-        if (ship.isSunk()) this.isSunk.push(ship);
+        if (ship.isSunk()) this.sunkShips.push(ship);
     };
 
     getSquare(location) {
