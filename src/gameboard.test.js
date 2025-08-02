@@ -129,3 +129,13 @@ test('receiveAttack results in ship being added to sunkShips array', () => {
     gameboard.receiveAttack(3, 3);
     expect(gameboard.sunkShips.length).toBe(1)
 });
+
+test('receiveAttack can sink a ship of length 4', () => {
+    gameboard.placeShip(3, "vertical", 9, 6);
+    gameboard.placeShip(4, "horizontal", 6, 4);
+    gameboard.receiveAttack(9, 6);
+    gameboard.receiveAttack(9, 7);
+    gameboard.receiveAttack(9, 8);
+    gameboard.receiveAttack(6, 4);
+    expect(gameboard.sunkShips.length).toBe(1);
+});
