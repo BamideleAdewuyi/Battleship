@@ -68,7 +68,7 @@ class Gameboard {
 
     receiveAttack(x, y) {
         let alreadyHit = false;
-        if (!this.checkForSquare(x, y, this.hits) && !this.checkForSquare(x, y, this.misses)) alreadyHit = true;
+        if (this.checkForSquare(x, y, this.hits) || this.checkForSquare(x, y, this.misses)) alreadyHit = true;
 
         if (!alreadyHit) {
             for (let ship of this.board) {
