@@ -103,6 +103,10 @@ class Gameboard {
         if (ship.isSunk()) this.sunkShips.push(ship);
     };
 
+    checkAllShipsSunk() {
+        return this.board.length == this.sunkShips.length;
+    };
+
     getSquare(location) {
 
     };
