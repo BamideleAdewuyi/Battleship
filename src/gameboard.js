@@ -64,6 +64,10 @@ class Gameboard {
         return true;
     };
 
+    receiveAttack(x, y) {
+
+    };
+
     getSquare(location) {
 
     };
