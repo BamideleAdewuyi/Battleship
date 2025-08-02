@@ -154,3 +154,13 @@ test('checkAllShipsSunk returns true when gameboard has its only ship sunk', () 
     gameboard.receiveAttack(3, 3);
     expect(gameboard.checkAllShipsSunk()).toBe(true);
 });
+
+test('checkAllShipsSunk returns false when only 1 of 2 ships is sunk', () => {
+    gameboard.placeShip(3, "vertical", 9, 6);
+    gameboard.placeShip(4, "horizontal", 6, 4);
+    gameboard.receiveAttack(9, 6);
+    gameboard.receiveAttack(9, 7);
+    gameboard.receiveAttack(9, 8);
+    gameboard.receiveAttack(6, 4);
+    expect(gameboard.checkAllShipsSunk()).toBe(false);
+});
