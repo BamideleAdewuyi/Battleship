@@ -78,6 +78,10 @@ class Gameboard {
         this.hits.push([x, y]);
     };
 
+    checkIfSquareHit(x, y) {
+
+    };
+
     getSquare(location) {
 
     };
