@@ -91,3 +91,9 @@ test('checkForSquare returns false when applied to gameboard with empty hits and
     expect(gameboard.checkForSquare(4, 5, gameboard.misses)).toBe(false);
     expect(gameboard.checkForSquare(4, 5, gameboard.hits)).toBe(false);
 });
+
+test('receiveAttack registers attack on ship', () => {
+    gameboard.placeShip(1, "horizontal", 3, 3);
+    gameboard.receiveAttack(3, 3);
+    expect(gameboard.board[0].damage).toBe(1);
+});
