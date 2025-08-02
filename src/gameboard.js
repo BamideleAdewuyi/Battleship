@@ -3,7 +3,7 @@ class Gameboard {
     constructor() {
         this.board = [];
         this.misses = [];
-        this.hits = [];
+        this.hits = []; 
     };
 
     createShip(length) {
@@ -68,6 +68,14 @@ class Gameboard {
 
     receiveAttack(x, y) {
 
+    };
+
+    recordMiss(x, y) {
+        this.misses.push([x, y]);
+    };
+
+    recordHit(x, y) {
+        this.hits.push([x, y]);
     };
 
     getSquare(location) {
