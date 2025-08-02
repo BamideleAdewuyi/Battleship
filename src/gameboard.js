@@ -59,7 +59,7 @@ class Gameboard {
 
     checkShipInBounds(ship) {
         for (const square of ship.position) {
-            if (square[0] > 10 || square[1] > 10 || square[0] < 0 || square[1] < 0) return false;
+            if (square[0] > 10 || square[1] > 10 || square[0] < 1 || square[1] < 1) return false;
         }
         return true;
     };
