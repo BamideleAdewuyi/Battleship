@@ -49,7 +49,7 @@ class Gameboard {
     checkShipValid(x, y) {
         for (const ship of this.board) {
             for (const square of ship.position) {
-                if (Math.abs(square[0] - x) < 2 || Math.abs(square[1] - y) < 2) {
+                if (Math.abs(square[0] - x) < 2 && Math.abs(square[1] - y) < 2) {
                     return false;
                 }
             }
