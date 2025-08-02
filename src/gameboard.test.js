@@ -113,3 +113,13 @@ test('receiveAttack does carry out same attack more than once.', () => {
     gameboard.receiveAttack(3, 3);
     expect(gameboard.board[0].damage).toBe(1);
 })
+
+test('receiveAttack does not store a miss more than once', () => {
+    gameboard.placeShip(1, "vertical", 3, 3);
+    gameboard.receiveAttack(1, 2);
+    gameboard.receiveAttack(1, 2);
+    gameboard.receiveAttack(1, 2);
+    expect(gameboard.misses).toStrictEqual([[1, 2]]);
+    expect(gameboard.hits).toStrictEqual([]);
+    expect(gameboard.board[0].damage).toBe(0)
+})
