@@ -20,7 +20,7 @@
     "webpack-dev-server": "^5.2.0"
   },
   "dependencies": {
-    "babel": "^5.8.38",
+    "babel": "^6.23.0",
     "date-fns": "^4.1.0"
   }
 }
