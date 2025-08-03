@@ -46,6 +46,10 @@ class GameView {
     };
 
     refreshBoards() {
+
+    };
+
+    renderBoard(container) {
         
     };
 };
