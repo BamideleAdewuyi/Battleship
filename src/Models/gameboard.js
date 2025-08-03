@@ -40,15 +40,6 @@ class Gameboard {
         }
     };
 
-    initialiseBoard() {
-        for (let i = 0; i < 10; i++) {
-            this.board[i] = [];
-            for (let j = 0; j < 10; j++) {
-                this.board[i].push(0)
-            }
-        }
-    };
-
     checkShipValid(x, y) {
         for (const ship of this.board) {
             for (const square of ship.position) {
