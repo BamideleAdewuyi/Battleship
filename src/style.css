@@ -4,3 +4,11 @@
     font-family: futura;
     box-sizing: border-box;
 }
+
+.headingDiv {
+    display: flex;
+}
+
+.headingDiv {
+    justify-content: center;
+}
