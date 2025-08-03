@@ -31,10 +31,18 @@ class GameView {
         this.player2Label = document.createElement("h3");
         this.player2Label.classList.add("playerLabel");
         this.player2Label.setAttribute("id", "player2Label");
-        this.player2Label.textContent = "Opponent's boats"
+        this.player2Label.textContent = "Opponent's boats";
         this.labelArea.append(this.player1Label, this.player2Label);
 
-        this.container.append(this.headingDiv, this.gameArea, this.labelArea);
+        // New game button
+        this.newGameArea = document.createElement("div");
+        this.newGameArea.classList.add("newGameArea");
+        this.newGameButton = document.createElement("button");
+        this.newGameButton.classList.add("newGameButton")
+        this.newGameButton.textContent = "New Game"
+        this.newGameArea.append(this.newGameButton);
+
+        this.container.append(this.headingDiv, this.gameArea, this.labelArea, this.newGameArea);
     };
 };
 
