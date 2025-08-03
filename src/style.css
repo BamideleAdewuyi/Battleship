@@ -1,9 +1,6 @@
 * {
-    outline: 2px solid green;
     margin: 0;
     padding: 0;
-};
-
-.container {
-    display: flex;
-};
+    font-family: futura;
+    box-sizing: border-box;
+}
