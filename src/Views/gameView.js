@@ -3,12 +3,10 @@ class GameView {
         this.container = document.querySelector(".container");
 
         // Heading
-        this.headingDiv = document.createElement("div");
-        this.headingDiv.classList.add("headingDiv");
-        this.heading = document.createElement("h2");
-        this.heading.classList.add("heading")
+        this.headingContainer = this.createElement("div", "headingContainer");
+        this.heading = this.createElement("h2", "heading");
         this.heading.textContent = "Battleship";
-        this.headingDiv.append(this.heading);
+        this.headingContainer.append(this.heading);
 
         // Game Area
         this.gameArea = document.createElement("div");
@@ -42,7 +40,7 @@ class GameView {
         this.newGameButton.textContent = "New Game"
         this.newGameArea.append(this.newGameButton);
 
-        this.container.append(this.headingDiv, this.gameArea, this.labelArea, this.newGameArea);
+        this.container.append(this.headingContainer, this.gameArea, this.labelArea, this.newGameArea);
     };
 
     getElement(selector) {
