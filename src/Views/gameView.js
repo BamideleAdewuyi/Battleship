@@ -44,6 +44,10 @@ class GameView {
 
         this.container.append(this.headingDiv, this.gameArea, this.labelArea, this.newGameArea);
     };
+
+    refreshBoards() {
+        
+    };
 };
 
 export default GameView;
