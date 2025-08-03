@@ -5,10 +5,10 @@
     box-sizing: border-box;
 }
 
-.headingDiv, .labelArea, .newGameArea {
+.headingContainer, .labelContainer, .newGameContainer {
     display: flex;
 }
 
-.headingDiv, .newGameArea {
+.headingContainer, .newGameContainer {
     justify-content: center;
 }
