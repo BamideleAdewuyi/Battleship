@@ -9,38 +9,30 @@ class GameView {
         this.headingContainer.append(this.heading);
 
         // Game Area
-        this.gameArea = document.createElement("div");
-        this.gameArea.classList.add("gameArea");
-        this.player1Side = document.createElement("div");
-        this.player1Side.classList.add("playerSide");
-        this.player1Side.setAttribute("id", "player1");
-        this.player2Side = document.createElement("div");
-        this.player2Side.classList.add("playerSide");
-        this.player2Side.setAttribute("id", "player2");
-        this.gameArea.append(this.player1Side, this.player2Side);
+        this.gameContainer = this.createElement("div", "gameContainer");
+        this.player1Container = this.createElement("div", "playerContainer");
+        this.player1Container.setAttribute("id", "player1");
+        this.player2Container = this.createElement("div", "playerContainer");
+        this.player2Container.setAttribute("id", "player2");
+        this.gameContainer.append(this.player1Container, this.player2Container);
 
         // Labels for players
-        this.labelArea = document.createElement("div");
-        this.labelArea.classList.add("labelArea");
-        this.player1Label = document.createElement("h3");
-        this.player1Label.classList.add("playerLabel");
+        this.labelContainer = this.createElement("div", "labelContainer");
+        this.player1Label = this.createElement("h3", "playerLabel");
         this.player1Label.setAttribute("id", "player1Label");
         this.player1Label.textContent = "Your boats";
-        this.player2Label = document.createElement("h3");
-        this.player2Label.classList.add("playerLabel");
+        this.player2Label = this.createElement("h3", "playerLabel");
         this.player2Label.setAttribute("id", "player2Label");
         this.player2Label.textContent = "Opponent's boats";
-        this.labelArea.append(this.player1Label, this.player2Label);
+        this.labelContainer.append(this.player1Label, this.player2Label);
 
         // New game button
-        this.newGameArea = document.createElement("div");
-        this.newGameArea.classList.add("newGameArea");
-        this.newGameButton = document.createElement("button");
-        this.newGameButton.classList.add("newGameButton")
-        this.newGameButton.textContent = "New Game"
-        this.newGameArea.append(this.newGameButton);
+        this.newGameContainer = this.createElement("div", "newGameContainer");
+        this.newGameButton = this.createElement("button", "newGameButton");
+        this.newGameButton.textContent = "New Game";
+        this.newGameContainer.append(this.newGameButton);
 
-        this.container.append(this.headingContainer, this.gameArea, this.labelArea, this.newGameArea);
+        this.container.append(this.headingContainer, this.gameContainer, this.labelContainer, this.newGameContainer);
     };
 
     getElement(selector) {
