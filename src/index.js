@@ -3,4 +3,4 @@ import GameView from "./Views/gameView";
 import Player from "./Models/player";
 import "./style.css";
 
-const game = new GameController(new GameView, new Player, new Player);
+const game = new GameController(new GameView, new Player("Human"), new Player("Computer"));
