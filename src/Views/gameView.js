@@ -45,12 +45,24 @@ class GameView {
         this.container.append(this.headingDiv, this.gameArea, this.labelArea, this.newGameArea);
     };
 
+    getElement(selector) {
+        return document.querySelector(selector);
+    };
+
+    createElement(tag, className) {
+        const element = document.createElement(tag);
+        
+        if (className) element.classList.add(className);
+
+        return element;
+    };
+
     refreshBoards() {
 
     };
 
-    renderBoard(container) {
-        
+    renderBoard(container, board) {
+
     };
 };
 
