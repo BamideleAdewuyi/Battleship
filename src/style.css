@@ -5,10 +5,31 @@
     box-sizing: border-box;
 }
 
-.headingContainer, .labelContainer, .newGameContainer {
+.headingContainer, .labelContainer, .newGameContainer, .gameContainer,
+.playerContainer {
     display: flex;
+}
+
+.playerContainer {
+    flex-wrap: wrap;
 }
 
 .headingContainer, .newGameContainer {
     justify-content: center;
+}
+
+.gameContainer, .labelContainer {
+    justify-content: space-around;
+}
+
+.playerContainer {
+    outline: 2px solid black;
+    height: 500px;
+    width: 500px;
+}
+
+.square {
+    height: 10%;
+    width: 10%;
+    outline: 2px solid black;
 }
