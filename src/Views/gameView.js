@@ -33,6 +33,8 @@ class GameView {
         this.newGameContainer.append(this.newGameButton);
 
         this.container.append(this.headingContainer, this.gameContainer, this.labelContainer, this.newGameContainer);
+
+        this.renderBoard(this.player1Container, "")
     };
 
     getElement(selector) {
@@ -59,10 +61,16 @@ class GameView {
         // - taken by an undamaged ship
         // - taken by a damaged ship
         // Also write method for clearing boards
-        for (let i = 0; i < 100; i++) {
-            let square = this.createElement("div", "square");
-            container.append(square);
-        }
+        for (let y = 10; y > 0; y--) {
+            let row = this.createElement("div", "row");
+            for (let x = 0; x < 10; x++) {
+                let square = this.createElement("div", "square");
+                square.classList.add(`x${x+1}`);
+                square.classList.add(`y${y}`);
+                row.append(square);
+            }
+            container.append(row);
+        };
     };
 };
 
