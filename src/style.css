@@ -5,6 +5,11 @@
     box-sizing: border-box;
 }
 
+.container, .gameContainer, 
+.labelContainer, .newGameContainer {
+    min-width: 1100px;
+}
+
 .headingContainer, .labelContainer, .newGameContainer, .gameContainer,
 .playerContainer, .row {
     display: flex;
