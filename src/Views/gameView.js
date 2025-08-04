@@ -51,8 +51,18 @@ class GameView {
 
     };
 
-    renderBoard(container, board) {
-
+    renderBoard(container, gameboard) {
+        // Make 10x10 grid of squares.
+        // Write separate methods to mark square as:
+        // - free but not hit
+        // - free and hit
+        // - taken by an undamaged ship
+        // - taken by a damaged ship
+        // Also write method for clearing boards
+        for (let i = 0; i < 100; i++) {
+            let square = this.createElement("div", "square");
+            container.append(square);
+        }
     };
 };
 
