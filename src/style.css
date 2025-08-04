@@ -6,7 +6,7 @@
 }
 
 .headingContainer, .labelContainer, .newGameContainer, .gameContainer,
-.playerContainer {
+.playerContainer, .row {
     display: flex;
 }
 
@@ -29,7 +29,7 @@
 }
 
 .square {
-    height: 10%;
-    width: 10%;
+    height: 50px;
+    width: 50px;
     outline: 2px solid black;
 }
