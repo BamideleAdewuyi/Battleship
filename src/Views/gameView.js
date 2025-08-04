@@ -72,6 +72,18 @@ class GameView {
             container.append(row);
         };
     };
+
+    markShips(gameboard) {
+
+    };
+
+    markHits(gameboard) {
+
+    };
+
+    markMisses(gameboard) {
+
+    };
 };
 
 export default GameView;
