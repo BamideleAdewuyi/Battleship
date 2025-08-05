@@ -34,7 +34,23 @@ class GameView {
 
         this.container.append(this.headingContainer, this.gameContainer, this.labelContainer, this.newGameContainer);
 
-        this.renderBoard(this.player1Container, "")
+        this.renderBoard(this.player1Container, {
+            board : [{
+                position: [[5, 5], [5,6], [5,7]]
+            }],
+            misses : [[1, 1], [10, 10], [3, 3]],
+            hits :[[5, 6]],
+            sunkShips : []
+        }, "Human")
+
+        this.renderBoard(this.player2Container, {
+            board : [{
+                position: [[5, 5], [5,6], [5,7]]
+            }],
+            misses : [[1, 1], [10, 10], [3, 3]],
+            hits :[[5, 6]],
+            sunkShips : []
+        }, "Computer")
     };
 
     getElement(selector) {
@@ -53,7 +69,7 @@ class GameView {
 
     };
 
-    renderBoard(container, gameboard) {
+    renderBoard(container, gameboard, type) {
         // Make 10x10 grid of squares.
         // Write separate methods to mark square as:
         // - free but not hit
@@ -61,28 +77,53 @@ class GameView {
         // - taken by an undamaged ship
         // - taken by a damaged ship
         // Also write method for clearing boards
+        this.clearContainer(container);
         for (let y = 10; y > 0; y--) {
             let row = this.createElement("div", "row");
             for (let x = 0; x < 10; x++) {
                 let square = this.createElement("div", "square");
                 square.classList.add(`x${x+1}`);
                 square.classList.add(`y${y}`);
+                square.classList.add(`freeSquare`);
                 row.append(square);
             }
             container.append(row);
         };
+
+        if (type == "Human") this.markShips(gameboard);
+        this.markHits(gameboard);
+        this.markMisses(gameboard);
     };
 
     markShips(gameboard) {
+        for (const ship of gameboard.board) {
+            for (const position of ship.position) {
+                let shipSquare = this.getElement(`.x${position[0]}.y${position[1]}`);
+                shipSquare.classList.remove("freeSquare");
+                shipSquare.classList.add("shipSquare");
+            }
+        }
 
     };
 
     markHits(gameboard) {
-
+        for (const hit of gameboard.hits) {
+            let hitSquare = this.getElement(`.x${hit[0]}.y${hit[1]}`);
+            hitSquare.classList.remove("shipSquare");
+            hitSquare.classList.add("hitSquare");
+        }
     };
 
     markMisses(gameboard) {
+        for (const miss of gameboard.misses) {
+            let missSquare = this.getElement(`.x${miss[0]}.y${miss[1]}`);
+            missSquare.classList.remove("shipSquare");
+            missSquare.classList.add("missSquare");
+        }
+    };
 
+    clearContainer(container) {
+        container.innerHTML = "";
     };
 };
 
