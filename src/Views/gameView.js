@@ -125,6 +125,14 @@ class GameView {
     clearContainer(container) {
         container.innerHTML = "";
     };
+
+    bindNewGameButton(handler) {
+
+    };
+
+    bindSquares(handler) {
+
+    };
 };
 
 export default GameView;
