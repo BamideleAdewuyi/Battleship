@@ -38,3 +38,15 @@
     width: 50px;
     outline: 2px solid black;
 }
+
+.shipSquare {
+    background-color: blue;
+}
+
+.hitSquare {
+    background-color: red;
+}
+
+.missSquare {
+    background-color: yellow;
+}
