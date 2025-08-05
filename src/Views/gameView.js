@@ -41,7 +41,7 @@ class GameView {
             misses : [[1, 1], [10, 10], [3, 3]],
             hits :[[5, 6]],
             sunkShips : []
-        }, "Human")
+        }, "Human", "1")
 
         this.renderBoard(this.player2Container, {
             board : [{
@@ -50,7 +50,7 @@ class GameView {
             misses : [[1, 1], [10, 10], [3, 3]],
             hits :[[5, 6]],
             sunkShips : []
-        }, "Computer")
+        }, "Computer", "2")
     };
 
     getElement(selector) {
@@ -69,7 +69,7 @@ class GameView {
 
     };
 
-    renderBoard(container, gameboard, type) {
+    renderBoard(container, gameboard, type, player) {
         // Make 10x10 grid of squares.
         // Write separate methods to mark square as:
         // - free but not hit
@@ -82,23 +82,23 @@ class GameView {
             let row = this.createElement("div", "row");
             for (let x = 0; x < 10; x++) {
                 let square = this.createElement("div", "square");
-                square.classList.add(`x${x+1}`);
-                square.classList.add(`y${y}`);
+                square.classList.add(`player${player}x${x+1}`);
+                square.classList.add(`player${player}y${y}`);
                 square.classList.add(`freeSquare`);
                 row.append(square);
             }
             container.append(row);
         };
 
-        if (type == "Human") this.markShips(gameboard);
-        this.markHits(gameboard);
-        this.markMisses(gameboard);
+        if (type == "Human") this.markShips(gameboard, player);
+        this.markHits(gameboard, player);
+        this.markMisses(gameboard, player);
     };
 
-    markShips(gameboard) {
+    markShips(gameboard, player) {
         for (const ship of gameboard.board) {
             for (const position of ship.position) {
-                let shipSquare = this.getElement(`.x${position[0]}.y${position[1]}`);
+                let shipSquare = this.getElement(`.player${player}x${position[0]}.player${player}y${position[1]}`);
                 shipSquare.classList.remove("freeSquare");
                 shipSquare.classList.add("shipSquare");
             }
@@ -106,17 +106,17 @@ class GameView {
 
     };
 
-    markHits(gameboard) {
+    markHits(gameboard, player) {
         for (const hit of gameboard.hits) {
-            let hitSquare = this.getElement(`.x${hit[0]}.y${hit[1]}`);
+            let hitSquare = this.getElement(`.player${player}x${hit[0]}.player${player}y${hit[1]}`);
             hitSquare.classList.remove("shipSquare");
             hitSquare.classList.add("hitSquare");
         }
     };
 
-    markMisses(gameboard) {
+    markMisses(gameboard, player) {
         for (const miss of gameboard.misses) {
-            let missSquare = this.getElement(`.x${miss[0]}.y${miss[1]}`);
+            let missSquare = this.getElement(`.player${player}x${miss[0]}.player${player}y${miss[1]}`);
             missSquare.classList.remove("shipSquare");
             missSquare.classList.add("missSquare");
         }
