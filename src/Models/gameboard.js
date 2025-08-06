@@ -1,6 +1,10 @@
 import Ship from "./ship";
 class Gameboard {
     constructor() {
+        this.initialise();
+    };
+
+    initialise() {
         this.board = [];
         this.misses = [];
         this.hits = [];
