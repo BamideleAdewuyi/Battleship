@@ -34,23 +34,23 @@ class GameView {
 
         this.container.append(this.headingContainer, this.gameContainer, this.labelContainer, this.newGameContainer);
 
-        this.renderBoard(this.player1Container, {
-            board : [{
-                position: [[5, 5], [5,6], [5,7]]
-            }],
-            misses : [[1, 1], [10, 10], [3, 3]],
-            hits :[[5, 6]],
-            sunkShips : []
-        }, "Human", "1")
+        // this.renderBoard(this.player1Container, {
+        //     board : [{
+        //         position: [[5, 5], [5,6], [5,7]]
+        //     }],
+        //     misses : [[1, 1], [10, 10], [3, 3]],
+        //     hits :[[5, 6]],
+        //     sunkShips : []
+        // }, "Human", "1")
 
-        this.renderBoard(this.player2Container, {
-            board : [{
-                position: [[5, 5], [5,6], [5,7]]
-            }],
-            misses : [[1, 1], [10, 10], [3, 3]],
-            hits :[[5, 6]],
-            sunkShips : []
-        }, "Computer", "2")
+        // this.renderBoard(this.player2Container, {
+        //     board : [{
+        //         position: [[5, 5], [5,6], [5,7]]
+        //     }],
+        //     misses : [[1, 1], [10, 10], [3, 3]],
+        //     hits :[[5, 6]],
+        //     sunkShips : []
+        // }, "Computer", "2")
     };
 
     getElement(selector) {
@@ -70,13 +70,6 @@ class GameView {
     };
 
     renderBoard(container, gameboard, type, player) {
-        // Make 10x10 grid of squares.
-        // Write separate methods to mark square as:
-        // - free but not hit
-        // - free and hit
-        // - taken by an undamaged ship
-        // - taken by a damaged ship
-        // Also write method for clearing boards
         this.clearContainer(container);
         for (let y = 10; y > 0; y--) {
             let row = this.createElement("div", "row");
@@ -127,11 +120,18 @@ class GameView {
     };
 
     bindNewGameButton(handler) {
-
+        this.newGameButton.addEventListener("click", () => {
+            handler();
+        });
     };
 
     bindSquares(handler) {
-
+        const squares = document.querySelectorAll('.square');
+        squares.forEach(square => {
+            square.addEventListener("click", () => {
+                handler(square)
+            })
+        })
     };
 };
 
