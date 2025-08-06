@@ -3,6 +3,34 @@ class GameController {
         this.view = view;
         this.player1 = player1;
         this.player2 = player2;
+
+        this.view.bindNewGameButton(this.handleNewGameButton)
+    };
+
+    handleNewGameButton = () => {
+        this.player1.gameboard.placeShip(5, "horizontal", 1, 10);
+        this.player1.gameboard.placeShip(4, "horizontal", 7, 10);
+        this.player1.gameboard.placeShip(3, "horizontal", 6, 8);
+        this.player1.gameboard.placeShip(3, "vertical", 10, 3);
+        this.player1.gameboard.placeShip(2, "vertical", 6, 4);
+        
+        this.player2.gameboard.placeShip(5, "horizontal", 1, 10);
+        this.player2.gameboard.placeShip(4, "horizontal", 7, 10);
+        this.player2.gameboard.placeShip(3, "horizontal", 6, 8);
+        this.player2.gameboard.placeShip(3, "vertical", 10, 3);
+        this.player2.gameboard.placeShip(2, "vertical", 6, 4);
+        this.view.renderBoard(this.view.player1Container, this.player1.gameboard, "Human", "1");
+        this.view.renderBoard(this.view.player2Container, this.player2.gameboard, "Computer", "2");
+        this.view.bindSquares(this.handleSquares);
+    };
+
+    handleSquares = (square) => {
+        const x = Number(square.classList[1].slice(8));
+        const y = Number(square.classList[2].slice(8));
+        this.player2.gameboard.receiveAttack(x, y);
+        this.view.renderBoard(this.view.player1Container, this.player1.gameboard, "Human", "1");
+        this.view.renderBoard(this.view.player2Container, this.player2.gameboard, "Computer", "2");
+        this.view.bindSquares(this.handleSquares);
     };
 };
 
