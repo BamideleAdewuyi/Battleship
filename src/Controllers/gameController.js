@@ -8,6 +8,9 @@ class GameController {
     };
 
     handleNewGameButton = () => {
+        this.player1.gameboard.initialise();
+        this.player2.gameboard.initialise();
+
         this.player1.gameboard.placeShip(5, "horizontal", 1, 10);
         this.player1.gameboard.placeShip(4, "horizontal", 7, 10);
         this.player1.gameboard.placeShip(3, "horizontal", 6, 8);
