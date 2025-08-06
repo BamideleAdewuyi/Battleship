@@ -33,24 +33,6 @@ class GameView {
         this.newGameContainer.append(this.newGameButton);
 
         this.container.append(this.headingContainer, this.gameContainer, this.labelContainer, this.newGameContainer);
-
-        // this.renderBoard(this.player1Container, {
-        //     board : [{
-        //         position: [[5, 5], [5,6], [5,7]]
-        //     }],
-        //     misses : [[1, 1], [10, 10], [3, 3]],
-        //     hits :[[5, 6]],
-        //     sunkShips : []
-        // }, "Human", "1")
-
-        // this.renderBoard(this.player2Container, {
-        //     board : [{
-        //         position: [[5, 5], [5,6], [5,7]]
-        //     }],
-        //     misses : [[1, 1], [10, 10], [3, 3]],
-        //     hits :[[5, 6]],
-        //     sunkShips : []
-        // }, "Computer", "2")
     };
 
     getElement(selector) {
