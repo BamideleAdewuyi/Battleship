@@ -77,6 +77,7 @@ class GameView {
                 let square = this.createElement("div", "square");
                 square.classList.add(`player${player}x${x+1}`);
                 square.classList.add(`player${player}y${y}`);
+                square.classList.add(`player${player}Square`)
                 square.classList.add(`freeSquare`);
                 row.append(square);
             }
@@ -126,7 +127,7 @@ class GameView {
     };
 
     bindSquares(handler) {
-        const squares = document.querySelectorAll('.square');
+        const squares = document.querySelectorAll('.player2Square');
         squares.forEach(square => {
             square.addEventListener("click", () => {
                 handler(square)
