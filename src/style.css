@@ -62,7 +62,7 @@
     background-color: blue;
 }
 
-.hitSquare {
+.hitSquare, .hitStat {
     background-color: red;
 }
 
