@@ -86,8 +86,10 @@ class GameView {
         };
     };
 
-    renderStatsContainer(gameBoard, player) {
-
+    renderStatsContainer(statsContainer, gameBoard, player) {
+        for (const ship of gameBoard.board) {
+            let shipStat = this.createElement("div", "shipStat");
+        }
     };
 
     markShips(gameboard, player) {
