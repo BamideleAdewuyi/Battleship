@@ -11,7 +11,8 @@
 }
 
 .headingContainer, .labelContainer, .newGameContainer, .gameContainer,
-.playerContainer, .row, .gameStateContainer, .shipStatsContainer {
+.playerContainer, .row, .gameStateContainer, .shipStatsContainer,
+.shipStatRow {
     display: flex;
 }
 
