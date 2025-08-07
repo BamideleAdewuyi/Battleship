@@ -65,6 +65,13 @@ class GameView {
 
     renderBoardAndStats(boardContainer, gameboard, type, player) {
         this.clearContainer(boardContainer);
+        this.renderSquares(boardContainer, player);
+        if (type == "Human") this.markShips(gameboard, player);
+        this.markHits(gameboard, player);
+        this.markMisses(gameboard, player);
+    };
+
+    renderSquares(boardContainer, player) {
         for (let y = 10; y > 0; y--) {
             let row = this.createElement("div", "row");
             for (let x = 0; x < 10; x++) {
@@ -77,10 +84,6 @@ class GameView {
             }
             boardContainer.append(row);
         };
-
-        if (type == "Human") this.markShips(gameboard, player);
-        this.markHits(gameboard, player);
-        this.markMisses(gameboard, player);
     };
 
     markShips(gameboard, player) {
