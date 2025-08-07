@@ -19,7 +19,7 @@
     flex-wrap: wrap;
 }
 
-.headingContainer, .newGameContainer {
+.headingContainer, .newGameContainer, .gameStateContainer {
     justify-content: center;
 }
 
