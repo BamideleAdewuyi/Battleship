@@ -27,10 +27,18 @@
     justify-content: space-around;
 }
 
-.playerContainer {
+.playerStatsContainer, .playerContainer {
     outline: 2px solid black;
+}
+
+.playerContainer {
     height: 500px;
     width: 500px;
+}
+
+.playerStatsContainer {
+    height: 200px;
+    width: 200px;
 }
 
 .square {
