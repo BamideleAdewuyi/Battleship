@@ -86,6 +86,10 @@ class GameView {
         };
     };
 
+    renderStatsContainer(gameBoard, player) {
+
+    };
+
     markShips(gameboard, player) {
         for (const ship of gameboard.board) {
             for (const position of ship.position) {
