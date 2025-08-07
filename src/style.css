@@ -11,7 +11,7 @@
 }
 
 .headingContainer, .labelContainer, .newGameContainer, .gameContainer,
-.playerContainer, .row {
+.playerContainer, .row, .gameStateContainer {
     display: flex;
 }
 
