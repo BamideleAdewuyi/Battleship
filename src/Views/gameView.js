@@ -69,6 +69,9 @@ class GameView {
         if (type == "Human") this.markShips(gameboard, player);
         this.markHits(gameboard, player);
         this.markMisses(gameboard, player);
+        
+        const statsContainer = document.getElementById(`player${player}StatsContainer`)
+        this.renderStatsContainer(statsContainer, gameboard, player);
     };
 
     renderSquares(boardContainer, player) {
@@ -88,7 +91,12 @@ class GameView {
 
     renderStatsContainer(statsContainer, gameBoard, player) {
         for (const ship of gameBoard.board) {
-            let shipStat = this.createElement("div", "shipStat");
+            let shipStatRow = this.createElement("div", "shipStatRow");
+            for (let i = 0; i < ship.length; i++) {
+                let shipStat = this.createElement("div", "shipStat");
+                shipStatRow.append(shipStat);
+            }
+            statsContainer.append(shipStatRow)
         }
     };
 
