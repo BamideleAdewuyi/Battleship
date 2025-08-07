@@ -98,6 +98,7 @@ class GameView {
                 let shipSquare = this.getElement(`.player${player}x${position[0]}.player${player}y${position[1]}`);
                 shipSquare.classList.remove("freeSquare");
                 shipSquare.classList.add("shipSquare");
+                shipSquare.classList.add(`player${player}${ship.shipType}`);
             }
         }
 
