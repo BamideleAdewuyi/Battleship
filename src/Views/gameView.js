@@ -94,7 +94,8 @@ class GameView {
         for (const ship of gameBoard.board) {
             let shipStatRow = this.createElement("div", "shipStatRow");
             for (let i = 0; i < ship.length; i++) {
-                let shipStat = this.createElement("div", "shipStat");
+                let shipStat = this.createElement("div", `player${player}${ship.shipType}Stat`);
+                shipStat.classList.add("shipStat");
                 shipStatRow.append(shipStat);
             }
             statsContainer.append(shipStatRow)
