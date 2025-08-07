@@ -38,7 +38,7 @@ class GameView {
         this.shipStatsContainer = this.createElement("div", "shipStatsContainer");
         this.player1StatsContainer = this.createElement("div", "player1StatsContainer");
         this.player2StatsContainer = this.createElement("div", "player2StatsContainer");
-        this.shipStatsContainer.append(this.player1StatsContainer, this.player1StatsContainer);
+        this.shipStatsContainer.append(this.player1StatsContainer, this.player2StatsContainer);
         this.gameStateContainer.append(this.gameStateHeading, this.shipStatsContainer);
         this.gameStateHeading.textContent = `Click "New Game" to start`;
 
