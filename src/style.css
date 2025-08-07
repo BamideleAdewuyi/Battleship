@@ -53,7 +53,12 @@
     outline: 2px solid black;
 }
 
-.shipSquare {
+.shipStat {
+    height: 35px;
+    width: 35px;
+}
+
+.shipSquare, .shipStat {
     background-color: blue;
 }
 
