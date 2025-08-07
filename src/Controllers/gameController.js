@@ -22,8 +22,8 @@ class GameController {
         this.player2.gameboard.placeShip(3, "horizontal", 6, 8);
         this.player2.gameboard.placeShip(3, "vertical", 10, 3);
         this.player2.gameboard.placeShip(2, "vertical", 6, 4);
-        this.view.renderBoard(this.view.player1Container, this.player1.gameboard, "Human", "1");
-        this.view.renderBoard(this.view.player2Container, this.player2.gameboard, "Computer", "2");
+        this.view.renderBoardAndStats(this.view.player1Container, this.player1.gameboard, "Human", "1");
+        this.view.renderBoardAndStats(this.view.player2Container, this.player2.gameboard, "Computer", "2");
         this.view.bindSquares(this.handleSquares);
     };
 
@@ -31,8 +31,8 @@ class GameController {
         const x = Number(square.classList[1].slice(8));
         const y = Number(square.classList[2].slice(8));
         this.player2.gameboard.receiveAttack(x, y);
-        this.view.renderBoard(this.view.player1Container, this.player1.gameboard, "Human", "1");
-        this.view.renderBoard(this.view.player2Container, this.player2.gameboard, "Computer", "2");
+        this.view.renderBoardAndStats(this.view.player1Container, this.player1.gameboard, "Human", "1");
+        this.view.renderBoardAndStats(this.view.player2Container, this.player2.gameboard, "Computer", "2");
         this.view.bindSquares(this.handleSquares);
     };
 };
