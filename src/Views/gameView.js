@@ -63,7 +63,7 @@ class GameView {
 
     };
 
-    renderBoard(container, gameboard, type, player) {
+    renderBoardAndStats(container, gameboard, type, player) {
         this.clearContainer(container);
         for (let y = 10; y > 0; y--) {
             let row = this.createElement("div", "row");
