@@ -90,6 +90,7 @@ class GameView {
     };
 
     renderStatsContainer(statsContainer, gameBoard, player) {
+        this.clearContainer(statsContainer);
         for (const ship of gameBoard.board) {
             let shipStatRow = this.createElement("div", "shipStatRow");
             for (let i = 0; i < ship.length; i++) {
