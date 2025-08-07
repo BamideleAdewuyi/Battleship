@@ -11,17 +11,17 @@ class GameController {
         this.player1.gameboard.initialise();
         this.player2.gameboard.initialise();
 
-        this.player1.gameboard.placeShip(5, "horizontal", 1, 10);
-        this.player1.gameboard.placeShip(4, "horizontal", 7, 10);
-        this.player1.gameboard.placeShip(3, "horizontal", 6, 8);
-        this.player1.gameboard.placeShip(3, "vertical", 10, 3);
-        this.player1.gameboard.placeShip(2, "vertical", 6, 4);
+        this.player1.gameboard.placeShip("Carrier", 5, "horizontal", 1, 10);
+        this.player1.gameboard.placeShip("BattleShip", 4, "horizontal", 7, 10);
+        this.player1.gameboard.placeShip("Cruiser", 3, "horizontal", 6, 8);
+        this.player1.gameboard.placeShip("Submarine", 3, "vertical", 10, 3);
+        this.player1.gameboard.placeShip("Destroyer", 2, "vertical", 6, 4);
         
-        this.player2.gameboard.placeShip(5, "horizontal", 1, 10);
-        this.player2.gameboard.placeShip(4, "horizontal", 7, 10);
-        this.player2.gameboard.placeShip(3, "horizontal", 6, 8);
-        this.player2.gameboard.placeShip(3, "vertical", 10, 3);
-        this.player2.gameboard.placeShip(2, "vertical", 6, 4);
+        this.player2.gameboard.placeShip("Carrier", 5, "horizontal", 1, 10);
+        this.player2.gameboard.placeShip("BattleShip", 4, "horizontal", 7, 10);
+        this.player2.gameboard.placeShip("Cruiser", 3, "horizontal", 6, 8);
+        this.player2.gameboard.placeShip("Submarine", 3, "vertical", 10, 3);
+        this.player2.gameboard.placeShip("Destroyer", 2, "vertical", 6, 4);
         this.view.renderBoardAndStats(this.view.player1Container, this.player1.gameboard, "Human", "1");
         this.view.renderBoardAndStats(this.view.player2Container, this.player2.gameboard, "Computer", "2");
         this.view.bindSquares(this.handleSquares);
