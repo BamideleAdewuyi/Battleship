@@ -53,7 +53,7 @@
     outline: 2px solid black;
 }
 
-.shipStat {
+.shipStat, .hitStat {
     height: 35px;
     width: 35px;
 }
