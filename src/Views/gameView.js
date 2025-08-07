@@ -63,8 +63,8 @@ class GameView {
 
     };
 
-    renderBoardAndStats(container, gameboard, type, player) {
-        this.clearContainer(container);
+    renderBoardAndStats(boardContainer, gameboard, type, player) {
+        this.clearContainer(boardContainer);
         for (let y = 10; y > 0; y--) {
             let row = this.createElement("div", "row");
             for (let x = 0; x < 10; x++) {
@@ -75,7 +75,7 @@ class GameView {
                 square.classList.add(`freeSquare`);
                 row.append(square);
             }
-            container.append(row);
+            boardContainer.append(row);
         };
 
         if (type == "Human") this.markShips(gameboard, player);
