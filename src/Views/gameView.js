@@ -32,7 +32,17 @@ class GameView {
         this.newGameButton.textContent = "New Game";
         this.newGameContainer.append(this.newGameButton);
 
-        this.container.append(this.headingContainer, this.gameContainer, this.labelContainer, this.newGameContainer);
+        // Game state container
+        this.gameStateContainer = this.createElement("div", "gameStateContainer");
+        this.gameStateHeading = this.createElement("h2", "gameStateHeading");
+        this.shipStatsContainer = this.createElement("div", "shipStatsContainer");
+        this.player1StatsContainer = this.createElement("div", "player1StatsContainer");
+        this.player2StatsContainer = this.createElement("div", "player2StatsContainer");
+        this.shipStatsContainer.append(this.player1StatsContainer, this.player1StatsContainer);
+        this.gameStateContainer.append(this.gameStateHeading, this.shipStatsContainer);
+        this.gameStateHeading.textContent = `Click "New Game" to start`;
+
+        this.container.append(this.headingContainer, this.gameContainer, this.labelContainer, this.newGameContainer, this.gameStateContainer);
     };
 
     getElement(selector) {
