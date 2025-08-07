@@ -11,12 +11,12 @@ class Gameboard {
         this.sunkShips = [];
     };
 
-    createShip(length) {
-        return new Ship(length);
+    createShip(shipType, length) {
+        return new Ship(shipType, length);
     };
 
-    placeShip(length, direction, x, y) {
-        const ship = this.createShip(length);
+    placeShip(shipType, length, direction, x, y) {
+        const ship = this.createShip(shipType, length);
         let valid = true;
         ship.position = [];
 
