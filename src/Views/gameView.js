@@ -103,6 +103,10 @@ class GameView {
         }
     };
 
+    renderGameStateHeading(message) {
+        this.gameStateHeading.textContent = message;
+    };
+
     markStats(player, ship) {
         const shipStats = document.querySelectorAll(`.player${player}${ship.shipType}Stat`);
         for (let i = 0; i < ship.damage; i++) {
