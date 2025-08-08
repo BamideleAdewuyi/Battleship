@@ -10,8 +10,8 @@ class Player {
         }
     }
     initialise() {
-        for (let x = 0; x < 11; x++) {
-            for (let y = 0; y < 11; y++) {
+        for (let x = 1; x < 11; x++) {
+            for (let y = 1; y < 11; y++) {
                 this.squares.push([x, y])
             }
         }
