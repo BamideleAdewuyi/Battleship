@@ -144,9 +144,7 @@ class GameView {
     };
 
     bindNewGameButton(handler) {
-        this.newGameButton.addEventListener("click", () => {
-            handler();
-        });
+        this.newGameButton.addEventListener("click", handler);
     };
 
     bindSquares(handler) {
