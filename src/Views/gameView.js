@@ -98,7 +98,16 @@ class GameView {
                 shipStat.classList.add("shipStat");
                 shipStatRow.append(shipStat);
             }
-            statsContainer.append(shipStatRow)
+            statsContainer.append(shipStatRow);
+            this.markStats(player, ship);
+        }
+    };
+
+    markStats(player, ship) {
+        const shipStats = document.querySelectorAll(`.player${player}${ship.shipType}Stat`);
+        for (let i = 0; i < ship.damage; i++) {
+            shipStats[i].classList.remove("shipStat");
+            shipStats[i].classList.add("hitStat")
         }
     };
 
