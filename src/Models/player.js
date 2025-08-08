@@ -18,12 +18,22 @@ class Player {
     };
 
     removeItem(arr, item) {
-        const index = arr.indexOf(item);
-        if (index > -1) {
-            arr.splice(index, 1);
+        for (const pair of arr) {
+            if (pair[0] == item[0] && pair[1] == item [1]) {
+                const index = arr.indexOf(pair);
+                if (index > -1) {
+                    arr.splice(index, 1);
+                }
+                return arr;
+            }
         }
-        return arr;
     };
+
+    makeRandomAttack(gameboard) {
+        const attack = this.squares[Math.floor(Math.random() * this.squares.length)];
+        gameboard.receiveAttack(attack[0], attack[1]);
+        this.removeItem(this.squares, attack);
+    }
 };
 
 export default Player;
