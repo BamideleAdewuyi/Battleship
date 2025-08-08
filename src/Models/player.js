@@ -32,7 +32,7 @@ class Player {
     makeRandomAttack(gameboard) {
         const attack = this.squares[Math.floor(Math.random() * this.squares.length)];
         gameboard.receiveAttack(attack[0], attack[1]);
-        this.removeItem(this.squares, attack);
+        this.squares = this.removeItem(this.squares, attack);
     }
 };
 
