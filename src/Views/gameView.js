@@ -127,6 +127,7 @@ class GameView {
         for (const hit of gameboard.hits) {
             let hitSquare = this.getElement(`.player${player}x${hit[0]}.player${player}y${hit[1]}`);
             hitSquare.classList.remove("shipSquare");
+            hitSquare.classList.remove("freeSquare");
             hitSquare.classList.add("hitSquare");
         }
     };
@@ -135,6 +136,7 @@ class GameView {
         for (const miss of gameboard.misses) {
             let missSquare = this.getElement(`.player${player}x${miss[0]}.player${player}y${miss[1]}`);
             missSquare.classList.remove("shipSquare");
+            missSquare.classList.remove("freeSquare");
             missSquare.classList.add("missSquare");
         }
     };
@@ -148,7 +150,7 @@ class GameView {
     };
 
     bindSquares(handler) {
-        const squares = document.querySelectorAll('.player2Square');
+        const squares = document.querySelectorAll('.player2Square.freeSquare');
         squares.forEach(square => {
             square.addEventListener("click", () => {
                 handler(square)
