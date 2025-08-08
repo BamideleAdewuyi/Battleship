@@ -9,6 +9,7 @@ class Gameboard {
         this.misses = [];
         this.hits = [];
         this.sunkShips = [];
+        this.gameOver = false;
     };
 
     createShip(shipType, length) {
@@ -77,6 +78,8 @@ class Gameboard {
             }
             this.misses.push([x, y]);
         }
+
+        if (this.checkAllShipsSunk()) this.gameOver = true;
     };
 
     recordMiss(x, y) {
