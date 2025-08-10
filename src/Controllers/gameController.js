@@ -39,14 +39,17 @@ class GameController {
             this.view.renderGameStateHeading("You won!");
             return;
         }
-        this.player2.makeRandomAttack(this.player1.gameboard);
-        this.view.renderBoardAndStats(this.view.player1Container, this.player1.gameboard, "Human", "1");
-        this.view.renderGameStateHeading("It's your turn");
-        if (this.player1.gameboard.gameOver) {
-            this.view.renderGameStateHeading("You lost!");
-            return
-        }
-        this.view.bindSquares(this.handleSquares);
+        setTimeout(() => {
+            
+            this.player2.makeRandomAttack(this.player1.gameboard);
+            this.view.renderBoardAndStats(this.view.player1Container, this.player1.gameboard, "Human", "1");
+            this.view.renderGameStateHeading("It's your turn");
+            if (this.player1.gameboard.gameOver) {
+                this.view.renderGameStateHeading("You lost!");
+                return
+            }
+            this.view.bindSquares(this.handleSquares)
+        }, 1000);
     };
 };
 
