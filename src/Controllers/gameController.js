@@ -11,6 +11,7 @@ class GameController {
         this.player1.gameboard.initialise();
         this.player2.gameboard.initialise();
         this.player2.initialise();
+        this.view.renderGameStateHeading("It's your turn");
 
         this.player1.gameboard.placeShip("Carrier", 5, "horizontal", 1, 10);
         this.player1.gameboard.placeShip("BattleShip", 4, "horizontal", 7, 10);
@@ -33,12 +34,14 @@ class GameController {
         const y = Number(square.classList[2].slice(8));
         this.player2.gameboard.receiveAttack(x, y);
         this.view.renderBoardAndStats(this.view.player2Container, this.player2.gameboard, "Computer", "2");
+        this.view.renderGameStateHeading("Opponent's turn")
         if (this.player2.gameboard.gameOver) {
             this.view.renderGameStateHeading("You won!");
             return;
         }
         this.player2.makeRandomAttack(this.player1.gameboard);
         this.view.renderBoardAndStats(this.view.player1Container, this.player1.gameboard, "Human", "1");
+        this.view.renderGameStateHeading("It's your turn");
         if (this.player1.gameboard.gameOver) {
             this.view.renderGameStateHeading("You lost!");
             return
