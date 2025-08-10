@@ -45,6 +45,10 @@ class Gameboard {
         }
     };
 
+    placeShipRandom() {
+
+    };
+
     checkShipValid(x, y) {
         for (const ship of this.board) {
             for (const square of ship.position) {
