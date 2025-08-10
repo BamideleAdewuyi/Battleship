@@ -31,9 +31,17 @@ class GameController {
         const x = Number(square.classList[1].slice(8));
         const y = Number(square.classList[2].slice(8));
         this.player2.gameboard.receiveAttack(x, y);
+        this.view.renderBoardAndStats(this.view.player2Container, this.player2.gameboard, "Computer", "2");
+        if (this.player2.gameboard.gameOver) {
+            this.view.renderGameStateHeading("You won!");
+            return;
+        }
         this.player2.makeRandomAttack(this.player1.gameboard);
         this.view.renderBoardAndStats(this.view.player1Container, this.player1.gameboard, "Human", "1");
-        this.view.renderBoardAndStats(this.view.player2Container, this.player2.gameboard, "Computer", "2");
+        if (this.player1.gameboard.gameOver) {
+            this.view.renderGameStateHeading("You lost!");
+            return
+        }
         this.view.bindSquares(this.handleSquares);
     };
 };
