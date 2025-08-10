@@ -73,13 +73,13 @@ class Gameboard {
                     ship.hit();
                     this.hits.push([x, y]);
                     this.checkShipSunk(ship);
+                    if (this.checkAllShipsSunk()) this.gameOver = true;
                     return;
                 }
             }
             this.misses.push([x, y]);
         }
 
-        if (this.checkAllShipsSunk()) this.gameOver = true;
     };
 
     recordMiss(x, y) {
@@ -102,7 +102,12 @@ class Gameboard {
     };
 
     checkAllShipsSunk() {
-        return this.board.length == this.sunkShips.length;
+        for (const ship of this.board) {
+            if (!ship.isSunk()) {
+                return false;
+            }
+        }
+        return true;
     };
 };
 
