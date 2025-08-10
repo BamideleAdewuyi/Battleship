@@ -5,11 +5,11 @@ class Player {
         this.type = type;
         this.gameboard = new Gameboard();
         if (type == "Computer") {
-            this.squares = []
             this.initialise();
         }
     }
     initialise() {
+        this.squares = [];
         for (let x = 1; x < 11; x++) {
             for (let y = 1; y < 11; y++) {
                 this.squares.push([x, y])
@@ -30,7 +30,8 @@ class Player {
     };
 
     makeRandomAttack(gameboard) {
-        const attack = this.squares[Math.floor(Math.random() * this.squares.length)];
+        const random = Math.floor(Math.random() * this.squares.length);
+        const attack = this.squares[random];
         gameboard.receiveAttack(attack[0], attack[1]);
         this.squares = this.removeItem(this.squares, attack);
     }
