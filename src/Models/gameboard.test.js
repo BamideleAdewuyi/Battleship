@@ -41,7 +41,7 @@ test('checkShipValid method returns false with square next to placed ship', () =
 
 test('Gameboard will not add a ship if any part of it is next to a ship already placed', () => {
     gameboard.placeShip("Destroyer", 2, "horizontal", 4, 4);
-    gameboard.placeShip(2, "horizontal", 5, 4)
+    gameboard.placeShip("Destroyer", 2, "horizontal", 5, 4)
     expect(gameboard.board.length).toBe(1);
 });
 
