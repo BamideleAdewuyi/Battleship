@@ -34,7 +34,7 @@ class Gameboard {
         }
 
         for (const square of ship.position) {
-            if (!this.checkShipValid(square[0], square[1])) {
+            if (!this.checkSquareValid(square[0], square[1])) {
                 valid = false
             }
         };
@@ -49,7 +49,7 @@ class Gameboard {
 
     };
 
-    checkShipValid(x, y) {
+    checkSquareValid(x, y) {
         for (const ship of this.board) {
             for (const square of ship.position) {
                 if (Math.abs(square[0] - x) < 2 && Math.abs(square[1] - y) < 2) {
