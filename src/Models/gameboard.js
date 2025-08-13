@@ -17,6 +17,7 @@ class Gameboard {
     };
 
     setShipPosition(ship, length, direction, x, y) {
+        ship.position = [];
         if (direction == "horizontal") {
             for (let i = x; i < x + length; i++) {
                 ship.position.push([i, y])
@@ -69,8 +70,20 @@ class Gameboard {
         return grid;
     };
 
-    getValidPositions(grid, ship) {
+    getValidPositions(ship, direction) {
+        const grid = this.generateGrid();
         let validPos = [];
+        let valid = true;
+        for (const square of grid) {
+            this.setShipPosition(ship, ship.length, direction, square[0], square[1]);
+            for (const pos of ship.position) {
+                if (!this.checkSquareValid(pos[0], pos[1] || !this.checkShipInBounds(ship))) {
+                    valid = false
+                }
+            if (valid) validPos.push(square);
+            };
+        };
+        return validPos;
     };
 
     checkSquareValid(x, y) {
