@@ -164,3 +164,9 @@ test('checkAllShipsSunk returns false when only 1 of 2 ships is sunk', () => {
     gameboard.receiveAttack(6, 4);
     expect(gameboard.checkAllShipsSunk()).toBe(false);
 });
+
+test('getValidPositions returns entire grid of 100 squares when ship of length 1 is added', () => {
+    let ship = gameboard.createShip("Destroyer", 1);
+    const validPos = gameboard.getValidPositions(ship, "vertical");
+    expect(validPos.length).toBe(100)
+});
