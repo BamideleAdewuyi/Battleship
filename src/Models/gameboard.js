@@ -70,7 +70,7 @@ class Gameboard {
             this.setShipPosition(ship, ship.length, direction, square[0], square[1]);
             for (const pos of ship.position) {
                 console.log(pos)
-                if (this.checkSquareValid(pos[0], pos[1] || this.checkShipInBounds(ship))) {
+                if (this.checkSquareValid(pos[0], pos[1]) && this.checkShipInBounds(ship)) {
                     validPos.push(square);
                 }
             };
