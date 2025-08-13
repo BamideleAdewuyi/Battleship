@@ -59,6 +59,10 @@ class Gameboard {
         return grid;
     };
 
+    getValidPositions(grid) {
+
+    };
+
     checkSquareValid(x, y) {
         for (const ship of this.board) {
             for (const square of ship.position) {
