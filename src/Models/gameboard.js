@@ -49,6 +49,16 @@ class Gameboard {
 
     };
 
+    generateGrid() {
+        let grid = [];
+        for (let x = 1; x < 11; x++) {
+            for (let y = 1; y < 11; y++) {
+                grid.push([x, y]);
+            }
+        }
+        return grid;
+    };
+
     checkSquareValid(x, y) {
         for (const ship of this.board) {
             for (const square of ship.position) {
