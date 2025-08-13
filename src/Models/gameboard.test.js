@@ -16,27 +16,27 @@ test('Can place a ship of length 2, horizontally  at 1,2', () => {
     expect(gameboard.board[0].position).toStrictEqual([[1,2], [2,2]])
 });
 
-test('checkShipValid method returns false with square next to placed ship', () => {
+test('checkSquareValid method returns false with square next to placed ship', () => {
     gameboard.placeShip("Destroyer", 2, 'horizontal', 4, 4);
-    expect(gameboard.checkShipValid(4, 4)).toBe(false);
-    expect(gameboard.checkShipValid(4, 3)).toBe(false);
-    expect(gameboard.checkShipValid(3, 3)).toBe(false);
-    expect(gameboard.checkShipValid(3, 4)).toBe(false);
-    expect(gameboard.checkShipValid(3, 5)).toBe(false);
-    expect(gameboard.checkShipValid(4, 5)).toBe(false);
-    expect(gameboard.checkShipValid(5, 5)).toBe(false);
-    expect(gameboard.checkShipValid(5, 4)).toBe(false);
-    expect(gameboard.checkShipValid(5, 3)).toBe(false);
+    expect(gameboard.checkSquareValid(4, 4)).toBe(false);
+    expect(gameboard.checkSquareValid(4, 3)).toBe(false);
+    expect(gameboard.checkSquareValid(3, 3)).toBe(false);
+    expect(gameboard.checkSquareValid(3, 4)).toBe(false);
+    expect(gameboard.checkSquareValid(3, 5)).toBe(false);
+    expect(gameboard.checkSquareValid(4, 5)).toBe(false);
+    expect(gameboard.checkSquareValid(5, 5)).toBe(false);
+    expect(gameboard.checkSquareValid(5, 4)).toBe(false);
+    expect(gameboard.checkSquareValid(5, 3)).toBe(false);
 
-    expect(gameboard.checkShipValid(5, 4)).toBe(false);
-    expect(gameboard.checkShipValid(6, 4)).toBe(false);
-    expect(gameboard.checkShipValid(6, 3)).toBe(false);
-    expect(gameboard.checkShipValid(5, 3)).toBe(false);
-    expect(gameboard.checkShipValid(4, 3)).toBe(false);
-    expect(gameboard.checkShipValid(4, 4)).toBe(false);
-    expect(gameboard.checkShipValid(4, 5)).toBe(false);
-    expect(gameboard.checkShipValid(5, 5)).toBe(false);
-    expect(gameboard.checkShipValid(6, 5)).toBe(false);
+    expect(gameboard.checkSquareValid(5, 4)).toBe(false);
+    expect(gameboard.checkSquareValid(6, 4)).toBe(false);
+    expect(gameboard.checkSquareValid(6, 3)).toBe(false);
+    expect(gameboard.checkSquareValid(5, 3)).toBe(false);
+    expect(gameboard.checkSquareValid(4, 3)).toBe(false);
+    expect(gameboard.checkSquareValid(4, 4)).toBe(false);
+    expect(gameboard.checkSquareValid(4, 5)).toBe(false);
+    expect(gameboard.checkSquareValid(5, 5)).toBe(false);
+    expect(gameboard.checkSquareValid(6, 5)).toBe(false);
 })
 
 test('Gameboard will not add a ship if any part of it is next to a ship already placed', () => {
