@@ -38,6 +38,7 @@ class Gameboard {
                 valid = false
             }
         };
+
         if (!this.checkShipInBounds(ship)) valid = false;
 
         if (valid) {
@@ -59,8 +60,8 @@ class Gameboard {
         return grid;
     };
 
-    getValidPositions(grid) {
-
+    getValidPositions(grid, ship) {
+        let validPos = [];
     };
 
     checkSquareValid(x, y) {
