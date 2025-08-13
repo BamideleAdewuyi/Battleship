@@ -50,6 +50,11 @@ class Gameboard {
         }
     };
 
+    getRandomDir() {
+        const dir = ["vertical", "horizontal"];
+        return dir[Math.floor(Math.random() * 2)];
+    };
+
     placeShipRandom() {
 
     };
