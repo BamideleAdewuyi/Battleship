@@ -170,3 +170,10 @@ test('getValidPositions returns entire grid of 100 squares when ship of length 1
     const validPos = gameboard.getValidPositions(ship, "vertical");
     expect(validPos.length).toBe(100)
 });
+
+test('When a ship of length 1 is input into getValidPositions, it should return grid of 96 squares when ship of length 1 is already on a board.', () => {
+    let ship = gameboard.createShip("Destroyer", 1);
+    gameboard.placeShip("Destroyer", 1, "horizontal", 1, 1)
+    const validPos = gameboard.getValidPositions(ship, "vertical");
+    expect(validPos.length).toBe(96)
+});
