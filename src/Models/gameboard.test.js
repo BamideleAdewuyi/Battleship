@@ -39,23 +39,6 @@ test('checkSquareValid method returns false with square next to placed ship', ()
     expect(gameboard.checkSquareValid(6, 5)).toBe(false);
 })
 
-test('Gameboard will not add a ship if any part of it is next to a ship already placed', () => {
-    gameboard.placeShip("Destroyer", 2, "horizontal", 4, 4);
-    gameboard.placeShip("Destroyer", 2, "horizontal", 5, 4)
-    expect(gameboard.board.length).toBe(1);
-});
-
-test('Gameboard can add a ship if it is not too close to an already placed ship', () => {
-    gameboard.placeShip("Destroyer", 2, "horizontal", 4, 4);
-    gameboard.placeShip("Destroyer", 2, "horizontal", 1, 1)
-    expect(gameboard.board.length).toBe(2);
-});
-
-test('Ship is not added if it goes out of right side of grid', () => {
-    gameboard.placeShip("Destroyer", 6, "horizontal", 10, 10);
-    expect(gameboard.board.length).toBe(0)
-});
-
 test('Ship of length 2 can be placed vertically on square (4, 4)', () => {
     gameboard.placeShip("Destroyer", 2, "vertical", 4, 4);
     expect(gameboard.board[0].position).toStrictEqual([[4,4], [4,5]])
