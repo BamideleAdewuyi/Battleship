@@ -45,8 +45,12 @@ class Gameboard {
         return dir[Math.floor(Math.random() * 2)];
     };
 
-    placeShipRandom() {
-
+    placeShipRandom(shipType, length) {
+        let ship = this.createShip(shipType, length);
+        const direction = this.getRandomDir();
+        const validPos = this.getValidPositions(ship, direction);
+        const randomPos = validPos[Math.floor(Math.random() * validPos.length)]
+        this.placeShip(shipType, length, direction, randomPos[0], randomPos[1])
     };
 
     generateGrid() {
