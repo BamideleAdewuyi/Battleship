@@ -68,11 +68,9 @@ class Gameboard {
         let validPos = [];
         for (const square of grid) {
             this.setShipPosition(ship, ship.length, direction, square[0], square[1]);
-            for (const pos of ship.position) {
-                if (this.checkSquareValid(pos[0], pos[1]) && this.checkShipInBounds(ship)) {
-                    validPos.push(square);
-                }
-            };
+            if (this.checkShipValid(ship) && this.checkShipInBounds(ship)) {
+                validPos.push(square)
+            }
         };
         return validPos;
     };
@@ -83,6 +81,15 @@ class Gameboard {
                 if (Math.abs(square[0] - x) < 2 && Math.abs(square[1] - y) < 2) {
                     return false;
                 }
+            }
+        }
+        return true;
+    };
+
+    checkShipValid(ship) {
+        for (const pos of ship.position) {
+            if (!this.checkSquareValid(pos[0], pos[1])) {
+                return false;
             }
         }
         return true;
