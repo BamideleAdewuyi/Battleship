@@ -174,3 +174,10 @@ test('When a ship of length 1 is input into getValidPositions, it should return 
     const validPos = gameboard.getValidPositions(ship, "vertical");
     expect(validPos.length).toBe(88)
 });
+
+test('The square [3, 4] should not be in the array returned by getValidPositions, when the board already has a 5 square long ship placed vertically at [3, 4]', () => {
+    gameboard.placeShip("Carrier", 5, "horizontal", 3, 4);
+    let ship = gameboard.createShip("Destroyer", 3);
+    const validPos = gameboard.getValidPositions(ship, "vertical");
+    expect(gameboard.checkForSquare(3, 4, validPos)).toBe(false);
+});
