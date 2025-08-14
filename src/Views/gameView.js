@@ -161,6 +161,10 @@ class GameView {
             })
         })
     };
+
+    bindShipSquares(handler) {
+
+    };
 };
 
 export default GameView;
