@@ -53,6 +53,10 @@ class GameController {
             this.view.bindSquares(this.handleSquares)
         }, 1000);
     };
+
+    handleShipSquares = (square) => {
+
+    };
 };
 
 export default GameController;
