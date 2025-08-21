@@ -12,19 +12,19 @@ class Gameboard {
         this.gameOver = false;
     };
 
-    createShip(shipType, length) {
-        return new Ship(shipType, length);
+    createShip(shipType, length, direction) {
+        return new Ship(shipType, length, direction);
     };
 
-    setShipPosition(ship, length, direction, x, y) {
+    setShipPosition(ship, length, x, y) {
         ship.position = [];
-        if (direction == "horizontal") {
+        if (ship.direction == "horizontal") {
             for (let i = x; i < x + length; i++) {
                 ship.position.push([i, y])
             };
         }
 
-        if (direction == "vertical") {
+        if (ship.direction == "vertical") {
             for (let i = y; i < y + length; i++) {
                 ship.position.push([x, i])
             };
@@ -32,10 +32,10 @@ class Gameboard {
     };
 
     placeShip(shipType, length, direction, x, y) {
-        const ship = this.createShip(shipType, length);
+        const ship = this.createShip(shipType, length, direction);
         ship.position = [];
 
-        this.setShipPosition(ship, length, direction, x, y);
+        this.setShipPosition(ship, length, x, y);
 
         this.board.push(ship)
     };
@@ -46,8 +46,8 @@ class Gameboard {
     };
 
     placeShipRandom(shipType, length) {
-        let ship = this.createShip(shipType, length);
         const direction = this.getRandomDir();
+        let ship = this.createShip(shipType, length, direction);
         const validPos = this.getValidPositions(ship, direction);
         const randomPos = validPos[Math.floor(Math.random() * validPos.length)]
         this.placeShip(shipType, length, direction, randomPos[0], randomPos[1])
@@ -67,7 +67,7 @@ class Gameboard {
         const grid = this.generateGrid();
         let validPos = [];
         for (const square of grid) {
-            this.setShipPosition(ship, ship.length, direction, square[0], square[1]);
+            this.setShipPosition(ship, ship.length, square[0], square[1]);
             if (this.checkShipValid(ship) && this.checkShipInBounds(ship)) {
                 validPos.push(square)
             }
@@ -147,6 +147,18 @@ class Gameboard {
             }
         }
         return true;
+    };
+
+    getShip(shipType, gameboard) {
+        for (let ship of gameboard.board) {
+            if (ship.shipType == shipType) {
+                return ship;
+            }
+        }
+    };
+
+    moveShip(ship, direction, x, y) {
+        this.setShipPosition(ship, ship.length, direction, x, y);
     };
 };
 
