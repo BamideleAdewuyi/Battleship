@@ -162,11 +162,17 @@ class GameView {
         })
     };
 
-    bindShipSquares(handler) {
+    bindShipSquares(handler, handler2) {
         const shipSquares = document.querySelectorAll(".player1Square.shipSquare");
         shipSquares.forEach(square => {
-            square.addEventListener("onDrag", () => {
+            square.draggable = true;
+            square.addEventListener("dragstart", (e) => {
                 handler(square);
+                console.log(e.target)
+            })
+
+            square.addEventListener("dragleave", (e) => {
+                handler2(square);
             })
         })
     };
