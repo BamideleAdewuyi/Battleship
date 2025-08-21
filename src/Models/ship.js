@@ -1,7 +1,8 @@
 class Ship {
-    constructor(shipType, length, damage = 0) {
+    constructor(shipType, length, direction, damage = 0) {
         this.shipType = shipType;
         this.length = length;
+        this.direction = direction;
         this.damage = damage;
     }
 
@@ -13,6 +14,6 @@ class Ship {
         if (this.damage >= this.length) return true;
         else return false;
     };
-}
+};
 
 export default Ship;
