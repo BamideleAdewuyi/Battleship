@@ -63,7 +63,7 @@ class Gameboard {
         return grid;
     };
 
-    getValidPositions(ship, direction) {
+    getValidPositions(ship) {
         const grid = this.generateGrid();
         let validPos = [];
         for (const square of grid) {
