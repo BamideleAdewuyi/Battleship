@@ -157,8 +157,8 @@ class Gameboard {
         }
     };
 
-    moveShip(ship, direction, x, y) {
-        this.setShipPosition(ship, ship.length, direction, x, y);
+    moveShip(ship, x, y) {
+        this.setShipPosition(ship, ship.length, x, y);
     };
 };
 
