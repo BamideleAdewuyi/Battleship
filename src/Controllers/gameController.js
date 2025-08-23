@@ -42,6 +42,7 @@ class GameController {
             this.view.renderGameStateHeading("You won!");
             return;
         }
+        this.view.renderBoardAndStats(this.view.player1Container, this.player1.gameboard, "Human", "1");
         setTimeout(() => {
             
             this.player2.makeRandomAttack(this.player1.gameboard);
