@@ -56,8 +56,6 @@ class GameController {
     };
 
     handleShipSquaresDown = (shipSquare) => {
-        const shipType = shipSquare[0].classList[5].slice(7);
-        const ship = this.player1.gameboard.getShip(shipType, this.player1.gameboard);
         shipSquare.forEach(square => {
             square.classList.add("movingShip");
         });
