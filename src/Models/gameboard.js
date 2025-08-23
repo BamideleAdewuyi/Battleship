@@ -191,8 +191,32 @@ class Gameboard {
         }
     };
 
-    changeShipDirection(ship, direction) {
+    changeShipDirection(ship) {
+        const ind = this.board.indexOf(ship);
+        let newDirection;
+        let oldDirection;
+        if (ship.direction == "vertical") {
+            newDirection = "horizontal";
+            oldDirection = "vertical"
+        }
+        if (ship.direction == "horizontal") {
+            newDirection = "vertical";
+            oldDirection = "horizontal"
+        }
 
+        this.removeItem(this.board, ship);
+        ship.direction = newDirection;
+        this.setShipPosition(ship, ship.length, ship.position[0][0], ship.position[0][1]);
+
+        if (!this.checkShipValid(ship) || !this.checkShipInBounds(ship)) {
+            ship.direction = oldDirection;
+            this.setShipPosition(ship, ship.length, ship.position[0][0], ship.position[0][1]);
+            this.board.splice(ind, 0, ship);
+            this.board.sort(this.compare);
+            return;
+        } else {
+            this.board.sort(this.compare);
+        }
     };
 };
 
