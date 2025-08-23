@@ -124,7 +124,6 @@ class GameView {
                 shipSquare.classList.add(`player${player}${ship.shipType}`);
             }
         }
-
     };
 
     markHits(gameboard, player) {
@@ -162,19 +161,43 @@ class GameView {
         })
     };
 
-    bindShipSquares(handler, handler2) {
+    bindShipSquares(handler, handler2, handler3, handler4) {
+        const squares = document.querySelectorAll('.player1Square.freeSquare');
         const shipSquares = document.querySelectorAll(".player1Square.shipSquare");
         shipSquares.forEach(square => {
             square.draggable = true;
-            square.addEventListener("dragstart", (e) => {
-                handler(square);
-                console.log(e.target)
-            })
+            square.addEventListener("mousedown", e => {
+                const shipType = e.target.classList[5];
+                const wholeShip = document.querySelectorAll(`.${shipType}`);
+                handler(wholeShip);
+            });
 
-            square.addEventListener("dragleave", (e) => {
-                handler2(square);
-            })
-        })
+            square.addEventListener("mouseup", e => {
+                const shipType = e.target.classList[5];
+                const wholeShip = document.querySelectorAll(`.${shipType}`);
+                handler2(wholeShip);
+            });
+
+            square.addEventListener("dragstart", e => {
+                const shipType = e.target.classList[5];
+                const wholeShip = document.querySelectorAll(`.${shipType}`);
+                handler3(wholeShip, e);
+            });
+        });
+
+        squares.forEach(square => {
+            square.addEventListener("dragover", e => {
+                e.preventDefault();
+            });
+        });
+
+        squares.forEach(square => {
+            square.addEventListener("drop", e => {
+                const shipType = e.dataTransfer.getData("text/plain")
+                const wholeShip = document.querySelectorAll(`.${shipType}`);
+                handler4(wholeShip, e);
+            });
+        });
     };
 };
 
