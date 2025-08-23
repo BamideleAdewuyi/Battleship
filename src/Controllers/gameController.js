@@ -29,7 +29,7 @@ class GameController {
         this.view.renderBoardAndStats(this.view.player1Container, this.player1.gameboard, "Human", "1");
         this.view.renderBoardAndStats(this.view.player2Container, this.player2.gameboard, "Computer", "2");
         this.view.bindSquares(this.handleSquares);
-        this.view.bindShipSquares(this.handleShipSquaresDown, this.handleShipSquaresUp, this.handleDragStart, this.handleDrop);
+        this.view.bindShipSquares(this.handleShipSquaresDown, this.handleShipSquaresUp, this.handleDragStart, this.handleDrop, this.handleDoubleClick);
     };
 
     handleSquares = (square) => {
@@ -80,7 +80,16 @@ class GameController {
         const y = e.target.classList[2].slice(8)
         this.player1.gameboard.moveShip(ship, Number(x), Number(y));
         this.view.renderBoardAndStats(this.view.player1Container, this.player1.gameboard, "Human", "1");
-        this.view.bindShipSquares(this.handleShipSquaresDown, this.handleShipSquaresUp, this.handleDragStart, this.handleDrop);
+        this.view.bindShipSquares(this.handleShipSquaresDown, this.handleShipSquaresUp, this.handleDragStart, this.handleDrop, this.handleDoubleClick);
+    };
+
+    handleDoubleClick = (shipSquare, e) => {
+        e.preventDefault();
+        const shipType = shipSquare[0].classList[5].slice(7);
+        const ship = this.player1.gameboard.getShip(shipType, this.player1.gameboard);
+        this.player1.gameboard.changeShipDirection(ship);
+        this.view.renderBoardAndStats(this.view.player1Container, this.player1.gameboard, "Human", "1");
+        this.view.bindShipSquares(this.handleShipSquaresDown, this.handleShipSquaresUp, this.handleDragStart, this.handleDrop, this.handleDoubleClick);
     };
 };
 
