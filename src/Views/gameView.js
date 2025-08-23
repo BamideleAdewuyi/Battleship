@@ -161,7 +161,7 @@ class GameView {
         })
     };
 
-    bindShipSquares(handler, handler2, handler3, handler4) {
+    bindShipSquares(handler, handler2, handler3, handler4, handler5) {
         const squares = document.querySelectorAll('.player1Square.freeSquare');
         const shipSquares = document.querySelectorAll(".player1Square.shipSquare");
         shipSquares.forEach(square => {
