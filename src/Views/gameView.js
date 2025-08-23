@@ -183,6 +183,13 @@ class GameView {
                 const wholeShip = document.querySelectorAll(`.${shipType}`);
                 handler3(wholeShip, e);
             });
+
+            square.addEventListener("dblclick", e => {
+                e.preventDefault();
+                const shipType = e.target.classList[5];
+                const wholeShip = document.querySelectorAll(`.${shipType}`);
+                handler5(wholeShip, e);
+            });
         });
 
         squares.forEach(square => {
