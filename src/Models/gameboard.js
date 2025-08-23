@@ -185,7 +185,7 @@ class Gameboard {
             this.board.splice(ind, 0, ship);
             return;
         } else {
-            this.setShipPosition(ship, ship, ship.length, x, y)
+            this.setShipPosition(ship, ship, ship.length, x, y);
             this.placeShip(ship.shipType, ship.length, ship.direction, x, y);
             this.board.sort(this.compare);
         }
@@ -197,11 +197,11 @@ class Gameboard {
         let oldDirection;
         if (ship.direction == "vertical") {
             newDirection = "horizontal";
-            oldDirection = "vertical"
+            oldDirection = "vertical";
         }
         if (ship.direction == "horizontal") {
             newDirection = "vertical";
-            oldDirection = "horizontal"
+            oldDirection = "horizontal";
         }
 
         this.removeItem(this.board, ship);
@@ -215,6 +215,7 @@ class Gameboard {
             this.board.sort(this.compare);
             return;
         } else {
+            this.placeShip(ship.shipType, ship.length, newDirection, ship.position[0][0], ship.position[0][1]);
             this.board.sort(this.compare);
         }
     };
