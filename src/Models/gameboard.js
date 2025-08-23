@@ -190,6 +190,10 @@ class Gameboard {
             this.board.sort(this.compare);
         }
     };
+
+    changeShipDirection(ship, direction) {
+
+    };
 };
 
 export default Gameboard;
