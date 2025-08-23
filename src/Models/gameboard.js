@@ -157,8 +157,50 @@ class Gameboard {
         }
     };
 
+    compare = (shipA, shipB) => {
+        if (shipA.length < shipB.length) {
+            return 1;
+        }
+        if (shipA.length > shipB.length) {
+            return -1;
+        }
+        return 0;
+    };
+
+    removeItem(arr, value) {
+        var index = arr.indexOf(value);
+        if (index > -1) {
+            arr.splice(index, 1);
+        }
+        return arr;
+    };
+
     moveShip(ship, x, y) {
+        // const oldPosition = ship.position.map(xy => [...xy]);
+        // const ind = this.board.indexOf(ship);
+        // this.removeItem(this.board, ship)
+        // this.setShipPosition(ship, ship.length, x, y);
+        // if (this.checkShipValid(ship) && this.checkShipInBounds(ship)) {
+        //     this.placeShip(ship.shipType, ship.length, ship.direction, x, y);
+        //     return;
+        // } else {
+        //     this.setShipPosition(ship, ship.length, oldPosition[0][0], oldPosition[0][1]);
+        //     this.board.splice(ind, 0, ship);
+        // }
+
+        const oldPosition = ship.position.map(xy => [...xy]);
+        const ind = this.board.indexOf(ship);
+        this.removeItem(this.board, ship)
         this.setShipPosition(ship, ship.length, x, y);
+        if (!this.checkShipValid(ship) || !this.checkShipInBounds(ship)) {
+            this.setShipPosition(ship, ship.length, oldPosition[0][0], oldPosition[0][1]);
+            this.board.splice(ind, 0, ship);
+            return;
+        } else {
+            this.setShipPosition(ship, ship, ship.length, x, y)
+            this.placeShip(ship.shipType, ship.length, ship.direction, x, y);
+            this.board.sort(this.compare);
+        }
     };
 };
 
