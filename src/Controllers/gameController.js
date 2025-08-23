@@ -29,7 +29,7 @@ class GameController {
         this.view.renderBoardAndStats(this.view.player1Container, this.player1.gameboard, "Human", "1");
         this.view.renderBoardAndStats(this.view.player2Container, this.player2.gameboard, "Computer", "2");
         this.view.bindSquares(this.handleSquares);
-        this.view.bindShipSquares(this.handleShipSquaresDown, this.handleShipSquaresUp);
+        this.view.bindShipSquares(this.handleShipSquaresDown, this.handleShipSquaresUp, this.handleDragStart, this.handleDrop);
     };
 
     handleSquares = (square) => {
@@ -55,14 +55,34 @@ class GameController {
         }, 1000);
     };
 
-    handleShipSquaresDown = (square) => {
-        const shipType = square.classList[5].slice(7);
+    handleShipSquaresDown = (shipSquare) => {
+        const shipType = shipSquare[0].classList[5].slice(7);
         const ship = this.player1.gameboard.getShip(shipType, this.player1.gameboard);
-        square.classList.add("movingShip");
+        shipSquare.forEach(square => {
+            square.classList.add("movingShip");
+        });
     };
 
-    handleShipSquaresUp = (square) => {
-        square.classList.remove("movingShip");
+    handleShipSquaresUp = (shipSquare) => {
+        shipSquare.forEach(square => {
+            square.classList.remove("movingShip");
+        });
+    };
+
+    handleDragStart = (shipSquare, e) => {
+        const shipType = shipSquare[0].classList[5]
+        e.dataTransfer.setData("text/plain", shipType);
+    };
+
+    handleDrop = (shipSquare, e) => {
+        e.preventDefault();
+        const shipType = shipSquare[0].classList[5].slice(7);
+        const ship = this.player1.gameboard.getShip(shipType, this.player1.gameboard);
+        const x = e.target.classList[1].slice(8)
+        const y = e.target.classList[2].slice(8)
+        this.player1.gameboard.moveShip(ship, Number(x), Number(y));
+        this.view.renderBoardAndStats(this.view.player1Container, this.player1.gameboard, "Human", "1");
+        this.view.bindShipSquares(this.handleShipSquaresDown, this.handleShipSquaresUp, this.handleDragStart, this.handleDrop);
     };
 };
 
