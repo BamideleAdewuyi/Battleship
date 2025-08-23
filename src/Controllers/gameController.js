@@ -11,7 +11,7 @@ class GameController {
         this.player1.gameboard.initialise();
         this.player2.gameboard.initialise();
         this.player2.initialise();
-        this.view.renderGameStateHeading("It's your turn");
+        this.view.renderGameStateHeading("Place your ships, then take your turn");
 
         
         this.player1.gameboard.placeShip("Carrier", 5, "horizontal", 1, 10);
