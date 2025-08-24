@@ -60,7 +60,11 @@ class GameView {
     };
 
     createMovingShip(ship) {
-
+        const movingShipContainer = this.createElement("div", "movingShipContainer");
+        for (const square of ship.length) {
+            const movingSquare = this.createElement("div");
+            movingShipContainer.append(movingSquare);
+        };
     };
 
     renderBoardAndStats(boardContainer, gameboard, type, player) {
