@@ -59,6 +59,10 @@ class GameView {
         return element;
     };
 
+    createMovingShip(ship) {
+
+    };
+
     renderBoardAndStats(boardContainer, gameboard, type, player) {
         this.clearContainer(boardContainer);
         this.renderSquares(boardContainer, player);
