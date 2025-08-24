@@ -59,10 +59,6 @@ class GameView {
         return element;
     };
 
-    refreshBoards() {
-
-    };
-
     renderBoardAndStats(boardContainer, gameboard, type, player) {
         this.clearContainer(boardContainer);
         this.renderSquares(boardContainer, player);
